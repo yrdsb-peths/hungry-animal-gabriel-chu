@@ -1,10 +1,10 @@
 #Greenfoot project file
+class.Elephant.image=elephant.png
 class.banana.image=bananas.png
-class.elephant.image=elephant.png
 editor.fx.0.height=739
 editor.fx.0.width=816
-editor.fx.0.x=552
-editor.fx.0.y=100
+editor.fx.0.x=1054
+editor.fx.0.y=214
 height=1056
 package.numDependencies=0
 package.numTargets=3
@@ -30,7 +30,7 @@ target1.width=120
 target1.x=0
 target1.y=0
 target2.height=70
-target2.name=elephant
+target2.name=Elephant
 target2.showInterface=false
 target2.type=ClassTarget
 target2.width=120
