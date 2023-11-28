@@ -16,5 +16,13 @@ public class Banana extends Actor
     {
         // Add your action code here.
         setLocation(getX(), getY() + 1);
+        
+        // Remove banana and draw game over when banana gets to bottom
+        MyWorld world = (MyWorld) getWorld();
+        if(getY() >= world.getHeight())
+        {
+            world.gameOver();
+            world.removeObject(this);
+        }
     }
 }
