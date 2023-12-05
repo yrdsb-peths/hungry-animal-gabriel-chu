@@ -30,7 +30,7 @@ public class Elephant extends Actor
         for(int i = 0; i < idleLeft.length; i++)
         {
             idleLeft[i] = new GreenfootImage("images/elephant_idle/idle" + i + ".png");
-            idleLeft[i] = idleLeft[i].mirrorHorizontally();
+            idleLeft[i].mirrorHorizontally();
             idleLeft[i].scale(100, 100);
         }
         //initianl elephant image
@@ -53,29 +53,34 @@ public class Elephant extends Actor
             setImage(idleLeft[imageIndex]);
             imageIndex = (imageIndex + 1) % idleLeft.length;
         }
+    }
     
     /**
      * Act - do whatever the elephant wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    
     public void act()
     {
-        // Add your action code here.
-        if(Greenfoot.isKeyDown("left"))
         {
-            move(-2);
-        }
-        else if(Greenfoot.isKeyDown("right"))
-        {
-            move(2);
-        }
+            // Add your action code here.
+            if(Greenfoot.isKeyDown("left"))
+            {
+                move(-2);
+                facing = "left";
+            }
+            else if(Greenfoot.isKeyDown("right"))
+            {
+                move(2);
+                facing = "right";
+            }
         
         // Remove banana if elephant eats it
         eat();
         // amimate elephant
         animateElephant();
+        }
     }
-    
     /**
      * Eat the banana and spawn new banana if banana is eaten
      */
