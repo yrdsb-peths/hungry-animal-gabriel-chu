@@ -8,6 +8,52 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Elephant extends Actor
 {
+    GreenfootSound elephantSound = new GreenfootSound("elephantcub.mp3");
+    GreenfootImage[] idleRight = new GreenfootImage[8];
+    GreenfootImage[] idleLeft = new GreenfootImage[8];
+    
+    //direction elephant facing
+    String facing = "right";
+    
+    
+    /**
+     * Constructor - The code that gets run one time is created 
+     */
+    public Elephant()
+    {
+        for(int i = 0; i < idleRight.length; i++)
+        {
+            idleRight[i] = new GreenfootImage("images/elephant_idle/idle" + i + ".png");
+            idleRight[i].scale(100, 100);
+        }
+        
+        for(int i = 0; i < idleLeft.length; i++)
+        {
+            idleLeft[i] = new GreenfootImage("images/elephant_idle/idle" + i + ".png");
+            idleLeft[i] = idleLeft[i].mirrorHorizontally();
+            idleLeft[i].scale(100, 100);
+        }
+        //initianl elephant image
+        setImage(idleRight[0]);
+    }
+    
+    /**
+     * Animate the elepghant
+     */
+    int imageIndex = 0;
+    public void animateElephant()
+    {
+        if(facing.equals("right"))
+        {
+            setImage(idleRight[imageIndex]);
+            imageIndex = (imageIndex + 1) % idleRight.length;
+        }
+        else
+        {
+            setImage(idleLeft[imageIndex]);
+            imageIndex = (imageIndex + 1) % idleLeft.length;
+        }
+    
     /**
      * Act - do whatever the elephant wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -26,6 +72,8 @@ public class Elephant extends Actor
         
         // Remove banana if elephant eats it
         eat();
+        // amimate elephant
+        animateElephant();
     }
     
     /**
@@ -39,6 +87,7 @@ public class Elephant extends Actor
             MyWorld world = (MyWorld) getWorld();
             world.createBanana();
             world.increaseScore();
+            elephantSound.play();
         }
         removeTouching(Banana.class);
     }
