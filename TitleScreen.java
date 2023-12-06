@@ -43,5 +43,18 @@ public class TitleScreen extends World
     {
         Elephant elephant = new Elephant();
         addObject(elephant,471,87);
+        elephant.setLocation(274,216);
+        elephant.setLocation(325,195);
+        Label label = new Label("click <space> to start", 40);
+        addObject(label,297,267);
+        label.setLocation(315,260);
+        elephant.setLocation(331,180);
+        label.setLocation(315,258);
+        elephant.setLocation(332,177);
+        Label label2 = new Label("press arrow keys to move side to side", 30);
+        addObject(label2,297,306);
+        label2.setLocation(304,299);
+        elephant.setLocation(288,179);
+        elephant.setLocation(309,92);
     }
 }
